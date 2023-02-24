@@ -40,8 +40,8 @@ class laptopControllerTest {
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertEquals(200, response.getStatusCodeValue());
 
-        List<Laptop> books = Arrays.asList(response.getBody());
-        System.out.println(books.size());
+        List<Laptop> laptop = Arrays.asList(response.getBody());
+        System.out.println(laptop.size());
 
     }
 
@@ -71,12 +71,12 @@ class laptopControllerTest {
 
         HttpEntity<String> request = new HttpEntity<>(json,headers);
 
-        ResponseEntity<Laptop> response = testRestTemplate.exchange("/api/books", HttpMethod.POST, request, Laptop.class);
+        ResponseEntity<Laptop> response = testRestTemplate.exchange("/api/laptops", HttpMethod.POST, request, Laptop.class);
 
         Laptop result = response.getBody();
 
         assertEquals(1L, result.getId());
-        assertEquals("Libro creado desde Spring Test", result.getMarca());
+        assertEquals("Toshiba", result.getMarca());
 
     }
 
