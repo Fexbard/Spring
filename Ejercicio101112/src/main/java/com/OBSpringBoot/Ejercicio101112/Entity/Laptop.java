@@ -1,15 +1,14 @@
 package com.OBSpringBoot.Ejercicio101112.Entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
+//@Table(name = "Laptops Stock")
 public class Laptop {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String clave;
     private String marca;
     private String modelo;
     private double precio;
@@ -17,12 +16,13 @@ public class Laptop {
 
     public Laptop(){}
 
-    public Laptop(Long id, String marca, String modelo, double precio, boolean online) {
+    public Laptop(Long id, String clave, String marca, String modelo, double precio, boolean online) {
         this.id = id;
         this.marca = marca;
         this.modelo = modelo;
         this.precio = precio;
         this.online = online;
+        this.clave = clave;
     }
 
     public Long getId() {
@@ -32,7 +32,12 @@ public class Laptop {
     public void setId(Long id) {
         this.id = id;
     }
-
+    public String getClave() {
+        return clave;
+}
+    public void setClave(String clave){
+        this.clave = clave;
+    }
     public String getMarca() {
         return marca;
     }
